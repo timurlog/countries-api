@@ -14,7 +14,14 @@ export default function App() {
       } h-screen w-full flex flex-col justify-between`}
     >
       <Navbar nobg={true} />
-      <div className="h-full"></div>
+      <div className={`px-5 md:px-10 text-9xl font-[Candu] tracking-widest`}>
+        <p className={`${darkMode ? "text-white" : "text-[#2F2F2C]"}`}>WANT</p>
+        <p className={`${darkMode ? "text-white" : "text-[#2F2F2C]"}`}>TO</p>
+        <p className={`${darkMode ? "text-white" : "text-[#2F2F2C]"}`}>FIND</p>
+        <p className={`${darkMode ? "text-white" : "text-[#2F2F2C]"}`}>
+          COUNTRIES?
+        </p>
+      </div>
       <Copyright />
     </div>
   );
