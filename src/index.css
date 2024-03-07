@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Candu";
+  src: url("./assets/fonts/Candu.ttf");
+}
+
+@font-face {
+  font-family: "Typewriter";
+  src: url("./assets/fonts/Typewriter.ttf");
+}
+
+@font-face {
+  font-family: "TypewriterBold";
+  src: url("./assets/fonts/TypewriterBold.ttf");
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

@@ -1,0 +1,15 @@
+.app {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url("./assets/image/bg/map-bg-03.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.witheApp {
+  background: linear-gradient(rgba(133, 133, 133, 0.3), rgba(32, 32, 32, 0.5)),
+    url("./assets/image/bg/map-bg-03-white.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

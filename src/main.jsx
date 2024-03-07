@@ -2,13 +2,44 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
+import { createContext } from "react";
 import App from "./App.jsx";
 
+export const ThemeContext = createContext(null);
+
 export default function Main() {
+  // THEME CONTROLER
+  const [darkMode, setDarkMode] = useState(true);
+
+  // API CALL
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://restcountries.com/v3.1/all")
+      .then((response) => setData(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  // ROUTER
   const router = createBrowserRouter([
     {
       path: "/countries-api/",
-      element: <App />,
+      element: (
+        <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+          <App />
+        </ThemeContext.Provider>
+      ),
+    },
+    {
+      path: "/countries-api/countries/",
+      element: <div></div>,
+    },
+    {
+      path: "/countries-api/countries/:countrieId",
+      element: <div></div>,
     },
   ]);
 
