@@ -2,13 +2,21 @@ import React from "react";
 import { useContext } from "react";
 import { ThemeContext } from "../../main";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const { darkMode, setDarkMode } = useContext(ThemeContext);
 
   return (
-    <div className="h-16 md:h-20 bg-[#2F2F2C] flex px-5 md:px-10 justify-between items-center">
+    <div
+      className={`h-16 md:h-20 ${
+        props.nobg ? "" : "bg-[#2F2F2C]"
+      } flex px-5 md:px-10 justify-between items-center`}
+    >
       <div>
-        <p className="text-white font-[Candu] text-xl md:text-3xl">
+        <p
+          className={`${
+            darkMode ? "text-white" : "text-[#2F2F2C]"
+          } font-[Candu] text-xl md:text-3xl`}
+        >
           Where in the world ?
         </p>
       </div>
