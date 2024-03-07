@@ -16,7 +16,7 @@ export default function Navbar() {
         {/* this hidden checkbox controls the state */}
         <input
           onClick={() => setDarkMode(!darkMode)}
-          checked={darkMode}
+          defaultChecked={darkMode}
           type="checkbox"
           className="theme-controller"
         />
