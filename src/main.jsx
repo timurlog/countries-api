@@ -11,6 +11,7 @@ import Countries from "./pages/Countries.jsx";
 import Countrie from "./pages/Countrie.jsx";
 
 export const ThemeContext = createContext(null);
+export const DataContext = createContext(null);
 
 export default function Main() {
   // THEME CONTROLER
@@ -38,14 +39,22 @@ export default function Main() {
     {
       path: "/countries-api/countries/",
       element: (
-        <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
-          <Countries />
-        </ThemeContext.Provider>
+        <DataContext.Provider value={{ data, setData }}>
+          <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+            <Countries />
+          </ThemeContext.Provider>
+        </DataContext.Provider>
       ),
     },
     {
       path: "/countries-api/countries/:countrieId",
-      element: <div></div>,
+      element: (
+        <DataContext.Provider value={{ data, setData }}>
+          <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+            <Countrie />
+          </ThemeContext.Provider>
+        </DataContext.Provider>
+      ),
     },
   ]);
 
