@@ -7,6 +7,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { createContext } from "react";
 import App from "./App.jsx";
+import Countries from "./pages/Countries.jsx";
+import Countrie from "./pages/Countrie.jsx";
 
 export const ThemeContext = createContext(null);
 
@@ -35,7 +37,11 @@ export default function Main() {
     },
     {
       path: "/countries-api/countries/",
-      element: <div></div>,
+      element: (
+        <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+          <Countries />
+        </ThemeContext.Provider>
+      ),
     },
     {
       path: "/countries-api/countries/:countrieId",

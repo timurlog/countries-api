@@ -8,7 +8,7 @@ export default function Navbar(props) {
   return (
     <div
       className={`h-16 md:h-20 ${
-        props.nobg ? "" : "bg-[#2F2F2C]"
+        props.nobg ? "" : `${darkMode ? "bg-[#1D1D1B]" : "bg-[#9F9F9F]"}`
       } flex px-5 md:px-10 justify-between items-center`}
     >
       <div>
