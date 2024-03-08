@@ -23,13 +23,24 @@ export default function Countries() {
   }, [searchVal, data]);
 
   return (
-    <div className={`${darkMode ? "bg-[#2F2F2C]" : "bg-white"}`}>
+    <div className={`${darkMode ? "bg-[#2F2F2C]" : "bg-white"} min-h-screen`}>
       <Navbar />
       <div className={`py-10`}>
         <Filters setSearchVal={setSearchVal} />
       </div>
-      <div>
-        <CountiresTab />
+      <div className="px-5 md:px-10 grid gap-5 md:gap-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-4 justify-items-center">
+        {newData.map((item, index) => {
+          return (
+            <CountiresTab
+              key={index}
+              flag={item.flags.png}
+              name={item.name.common}
+              population={item.population}
+              region={item.region}
+              capital={item.capital}
+            />
+          );
+        })}
       </div>
       <Copyright />
     </div>

@@ -15,7 +15,7 @@ export default function Filters(props) {
           <input
             onChange={(e) => props.setSearchVal(e.target.value)}
             type="text"
-            className="grow w-[335px] font-[TypewriterBold]"
+            className="grow font-[TypewriterBold]"
             placeholder="Search"
           />
           <svg
