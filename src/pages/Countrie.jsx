@@ -23,6 +23,12 @@ export default function Countrie() {
     );
   }, [countrieId, data]);
 
+  function numberWithSpaces(x) {
+    const parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return parts.join(".");
+  }
+
   return (
     <div
       className={`${
@@ -44,8 +50,25 @@ export default function Countrie() {
         </Link>
       </div>
       <div>
-        <div></div>
-        <div></div>
+        {countrie.map((item, index) => (
+          <div key={index}>
+            <div>
+              <img src={item.flags.png} alt="" />
+            </div>
+            <div>
+              <div>{item.name.common}</div>
+              <div>
+                <div>{numberWithSpaces(item.population)}</div>
+                <div>{item.tld}</div>
+                <div>{item.region}</div>
+                <div>{}</div>
+                <div>{item.region}</div>
+                <div>{item.region}</div>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        ))}
       </div>
       <Copyright />
     </div>
