@@ -49,21 +49,31 @@ export default function Countrie() {
           </div>
         </Link>
       </div>
-      <div>
+      <div className="h-1/3">
         {countrie.map((item, index) => (
-          <div key={index}>
-            <div>
-              <img src={item.flags.png} alt="" />
+          <div key={index} className="flex h-full px-5 md:px-10 items-center">
+            <div className="w-1/2 h-full flex justify-center items-center">
+              <img className="h-full" src={item.flags.svg} alt="" />
             </div>
-            <div>
+            <div className="w-1/2 h-full">
               <div>{item.name.common}</div>
-              <div>
-                <div>{numberWithSpaces(item.population)}</div>
+              <div className="grid grid-cols-2">
+                <div>
+                  {
+                    item.name.nativeName[Object.keys(item.name.nativeName)[0]]
+                      .common
+                  }
+                </div>
                 <div>{item.tld}</div>
+                <div>{numberWithSpaces(item.population)}</div>
+                <div>
+                  {item.currencies[Object.keys(item.currencies)[0]].name}
+                </div>
                 <div>{item.region}</div>
-                <div>{}</div>
-                <div>{item.region}</div>
-                <div>{item.region}</div>
+                <div>{Object.values(item.languages).join(", ")}</div>
+                <div>{item.subregion}</div>
+                <div></div>
+                <div>{item.capital}</div>
               </div>
               <div></div>
             </div>
